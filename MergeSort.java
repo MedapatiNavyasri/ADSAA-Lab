@@ -1,3 +1,4 @@
+//Program to implement Merge Sort.
 import java.util.Scanner;
 //class MergeSortDemo to perform Merge Sort Operation
 class MergeSortDemo{
