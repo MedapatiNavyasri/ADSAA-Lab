@@ -1,11 +1,14 @@
+//Program to implement Minimum Heap using arrays.
 class MinHeap{
     int[] h;
     int size,capacity;
+    //constructor
     MinHeap(int capacity){
         this.capacity=capacity;
         h=new int[capacity+1];
         size=0;
     }
+    //Insertion of item
     public void insert(int item){
         if(size==capacity){
             System.out.println("Heap is full");
@@ -18,6 +21,7 @@ class MinHeap{
         }
         h[i]=item;
     }
+    //Deletion of item
     public int delete(){
         if(size==0){
             System.out.println("Heap is empty");
@@ -29,6 +33,7 @@ class MinHeap{
         adjust(1);
         return min;
     }
+    //Performing Heapify operation
     public void adjust(int i){
         int item=h[1];
         int j=2*i;
@@ -44,6 +49,7 @@ class MinHeap{
         }
         h[j/2]=item;
     }
+    //Printing elements
     public void display(){
         for(int i=1;i<=size;i++){
             System.out.print(h[i]+" ");
@@ -51,16 +57,18 @@ class MinHeap{
         System.out.println();
     }
 }
+//Main class
 public class MinHeapDemo {
     public static void main(String[] args){
         MinHeap h=new MinHeap(7);
         h.insert(70);
         h.insert(60);
-    h.insert(50);
-    h.insert(40);
-    h.insert(30);
-    h.insert(20);
-    h.insert(10);
-    h.display();
+        h.insert(50);
+        h.insert(40);
+        h.insert(30);
+        h.insert(20);
+        h.insert(10);
+        h.display();
     }
 }
+
