@@ -26,6 +26,7 @@ class DFT{
         int v=sc.nextInt();
         DFT graph=new DFT(v);
         System.out.println("Enter adajacency matrix:");
+        //Creating adjacency matrix
         for(int i=0;i<v;i++){
             for(int j=0;j<v;j++){
                 graph.adj[i][j]=sc.nextInt();
@@ -34,6 +35,7 @@ class DFT{
         System.out.println("Enter starting node for traversal:");
         int start=sc.nextInt();
         System.out.println("Traversal order of the graph:");
+        //calling traversing method to perform DFT
         graph.traversing(start);
      }
 }
