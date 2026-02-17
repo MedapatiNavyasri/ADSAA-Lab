@@ -1,5 +1,6 @@
+//Program to implement AVL tree.
 import java.util.Scanner;
-
+//Class to create nodes.
 class Node {
     int data, h;
     Node leftChild, rightChild;
@@ -18,7 +19,7 @@ class Node {
         rightChild = null;
     }
 }
-
+//Class to constructAVLTree
 class ConstructAVLTree {
     private Node root;
 
@@ -264,3 +265,4 @@ public class AVL{
         }
     }
 }
+
