@@ -1,11 +1,14 @@
+//Program to implement Maximum Heap using arrays.
 class MaxHeap{
     int[] heap;
     int size,capacity;
+    //constructor
     MaxHeap(int capacity){
         this.capacity=capacity;
         heap=new int[capacity+1];
         size=0;
     }
+    //Inserting item in max heap.
     public void insert(int item){
         if(size==capacity){
             System.out.println("Heap is full");
@@ -18,6 +21,7 @@ class MaxHeap{
         }    
         heap[i]=item;
     }
+    //Deleting max element from heap(root).
     public int delete(){
         if(size==0){
             System.out.println("Heap is empty");
@@ -29,6 +33,7 @@ class MaxHeap{
         adjust(1);
         return max;
     }
+    //Performing heapify operation.
     public void adjust(int i){
         int item=heap[1];
         int j=2*i;
@@ -44,6 +49,7 @@ class MaxHeap{
         }
         heap[j/2]=item;
     }
+    //Printing elements in Max heap
     public void display(){
         for(int i=1;i<=size;i++){
             System.out.print(heap[i]+" ");
@@ -51,6 +57,7 @@ class MaxHeap{
         System.out.println();
     }
 }
+//Main class to perform Max Heap operation.
 class MaxHeapDemo1{
     public static void main(String[] args) {
         MaxHeap h=new MaxHeap(7);
@@ -65,4 +72,5 @@ class MaxHeapDemo1{
         h.delete();
         h.display();
     }
+
 }
