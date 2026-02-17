@@ -1,7 +1,10 @@
+//Program to implement Breadth First Traversal using Adjacency List
 import java.util.*;
+//class to perform BFS
 public class BFSList {
     int v;
     List<List<Integer>> adj;
+    //constructor
     BFSList(int v){
         this.v=v;
         adj=new ArrayList<>(v);
@@ -9,10 +12,12 @@ public class BFSList {
         adj.add(new LinkedList<>());
         }
     }
+    //Adding edges
     void addEdge(int src,int des){
         adj.get(src).add(des);
         adj.get(des).add(src);
     }
+    //bfs method to traverse node
     void bfs(int start){
         boolean[] vis=new boolean[v];
         Arrays.fill(vis,false);
@@ -39,6 +44,7 @@ public class BFSList {
         System.out.println("enter no.of edges:");
         int e=sc.nextInt();
         System.out.println("Enter source and destination:");
+        //Adding Sources and their Destination edges.
         for (int i=0;i<e;i++) {
             int src=sc.nextInt();
             int des=sc.nextInt();
@@ -46,7 +52,9 @@ public class BFSList {
         }
         System.out.println("Enter start node:");
         int start=sc.nextInt();
+        //calling bfs method to perform traversing
         graph.bfs(start);
         sc.close();
     }
 }
+
