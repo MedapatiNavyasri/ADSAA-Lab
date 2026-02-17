@@ -1,4 +1,6 @@
+//Program to implement Depth First Traversal using Adjacency List
 import java.util.*;
+//implementing DFT
 public class DFSList {
     int v;
     boolean[] vis;
@@ -11,10 +13,12 @@ public class DFSList {
         }
         vis=new boolean[v];
     }
+    //adding edges
     void addEdge(int src,int des){
         adj.get(src).add(des);
         adj.get(des).add(src);
     }
+    //Traversing the nodes
     void dfs(int start){
         vis[start]=true;
         System.out.print(start+" ");
@@ -32,6 +36,7 @@ public class DFSList {
     System.out.println("Enter no.of edges");
     int e=sc.nextInt();
     System.out.println("enter source and destination");
+    //Adding sources and their destination.
     for(int i=0;i<e;i++){
         int src=sc.nextInt();
         int des=sc.nextInt();
@@ -39,7 +44,9 @@ public class DFSList {
     }
     System.out.println("enter start node");
     int start=sc.nextInt();
+    //calling dfs method to perform traversing
     graph.dfs(start);
     sc.close();
   }  
 }
+
