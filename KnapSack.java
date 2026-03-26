@@ -1,35 +1,22 @@
-//Program to implement 0/1 KnapSack using Dynamic Programming
-import java.util.Scanner;
-//Main class
-class KnapSack{
-	//Method to find Maximum profit of the Knapsack
-	public static int doKnapSack(int m,int[] profits,int[] weights){
-		int[] dp=new int[m+1];
-		//Using bottom-up approach to find max profits
-		for(int i=0;i<weights.length;i++){
-			for(int j=m;j>=weights[i];j--){
-				dp[j]=Math.max(dp[j],dp[j-weights[i]]+profits[i]);
-			}
+//To implement Backtracking strategy by 0/1 knapsack using backtracking
+import java.util.*;
+public class KnapSack{
+	static int n=4;
+	static int w=16;
+	static int[] weight={2,5,10,5};
+	static int[] profit={40,30,50,10};
+	static int maxProfit=0;
+	static void knapsack(int i,int currentw,int currentp){
+		if(currentw<=w && currentp>maxProfit){
+			maxProfit=currentp;
 		}
-		return dp[m];
+		if(i<n){
+			knapsack(i+1,currentw+weight[i],currentp+profit[i]);
+			knapsack(i+1,currentw,currentp);
+		}
 	}
 	public static void main(String[] args){
-		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter no.of weights");
-		int n=sc.nextInt();
-		int[] weights=new int[n];
-		int[] profits=new int[n];
-		System.out.println("Enter weights:");
-		for(int i=0;i<n;i++){
-			weights[i]=sc.nextInt();
-		}
-		System.out.println("Enter profits for each weights:");
-		for(int i=0;i<n;i++){
-			profits[i]=sc.nextInt();
-		}
-		System.out.println("Enter Maximum capacity of KnapSack:");
-		int m=sc.nextInt();
-		int result=doKnapSack(m,profits,weights);
-		System.out.println("Maximum profit that can be obtained from Knapsack is: "+result);
+		knapsack(0,0,0);
+		System.out.println("Maximum Profit="+maxProfit);
 	}
 }
